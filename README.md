@@ -6,8 +6,9 @@ A cinematic, real-time weather dashboard built with **TanStack Start**, **React*
 ## 📸 Screenshots
 
 <img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/837edf5f-aba1-4df3-8e7a-2abf1843407c" />
-<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/ab565421-f7e8-4feb-8f96-ba95ac2e3140" />
-<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/dbd73a63-7489-44b1-a15e-7e5347d551aa" />
+<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max) (1)" src="https://github.com/user-attachments/assets/ba5e0dbc-1eaa-4bc6-96ac-f816761b8a54" />
+<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max) (1)" src="https://github.com/user-attachments/assets/fbf397a0-2a82-4564-90f7-ea56e92217ff" />
+
 <table>
   <tr>
     <td width="33.33%"><img width="100%" alt="Mobile View 1" src="https://github.com/user-attachments/assets/586fc4f1-70f8-40d5-a187-1c6278eb4aa7" /></td>
