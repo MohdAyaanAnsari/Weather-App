@@ -242,14 +242,23 @@ export const WeatherDashboard: React.FC<WeatherDashboardProps> = ({
                 </div>
 
                 {/* BOTTOM CONTROL BAR */}
-                <div className="flex justify-between items-center bg-black/30 backdrop-blur-md px-5 py-2.5 rounded-xl border border-white/5 flex-initial shadow-inner">
-                    <button onClick={() => setIsLeftSidebarOpen(true)} className="p-1.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
+                <div className="flex justify-between items-center bg-black/30 backdrop-blur-md px-5 rounded-xl border border-white/5 flex-initial shadow-inner">
+                    {/* Left Toggle Button */}
+                    <button onClick={() => setIsLeftSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
                         <Blocks className="w-4 h-4" />
                     </button>
-                    <button className="w-9 h-9 bg-gradient-to-tr from-purple-500 to-indigo-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/20 hover:scale-105 active:scale-95 transition-all border border-white/20">
-                        <Plus className="w-4 h-4 stroke-[2.5]" />
+
+                    {/* Logo Container - Increased to w-12 h-12 (48px) to fit a prominent logo */}
+                    <button className="w-20 h-15 flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity">
+                        <img
+                            src="/logo.png"
+                            alt="Logo"
+                            className="w-full h-full object-contain"
+                        />
                     </button>
-                    <button onClick={() => setIsRightSidebarOpen(true)} className="p-1.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
+
+                    {/* Right Toggle Button */}
+                    <button onClick={() => setIsRightSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
                         <List className="w-4 h-4" />
                     </button>
                 </div>
