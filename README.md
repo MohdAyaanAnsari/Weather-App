@@ -1,193 +1,155 @@
-Welcome to your new TanStack Start app! 
+# 🌤️ Atmosphere — Weather Dashboard
 
-# Getting Started
+A cinematic, real-time weather dashboard built with **TanStack Start**, **React**, and **Tailwind CSS**. Fetches live weather data via the [WeatherAPI](https://www.weatherapi.com/) and presents it in a premium glassmorphism UI with animated icons, hourly/weekly forecasts, air quality metrics, and multi-city lookup.
+---
 
-To run this application:
+## 📸 Screenshots
+
+<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/837edf5f-aba1-4df3-8e7a-2abf1843407c" />
+<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/ab565421-f7e8-4feb-8f96-ba95ac2e3140" />
+<img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/dbd73a63-7489-44b1-a15e-7e5347d551aa" />
+<table>
+  <tr>
+    <img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/03d2a02a-b78e-4b6c-80e0-9c249d26f8aa" />
+    <img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/ffb013fa-0d9b-4183-9be9-81e88517c6b0" />
+<img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro) (2)" src="https://github.com/user-attachments/assets/d2e9123b-1d67-4aef-bee7-d92fdf70b771" />
+
+  </tr>
+</table>
+
+
+---
+
+## ✨ Features
+
+- **Auto-location detection** — Uses the browser Geolocation API to load weather for the user's current coordinates on first visit
+- **Current conditions** — Temperature, feels-like, wind speed, humidity, visibility, and UV index
+- **24-hour timeline** — Scrollable hourly forecast with precipitation chance indicators
+- **7-day forecast** — Daily high/low with animated condition icons
+- **Left Sidebar — Metrics Drawer**
+  - Air Quality Index (US-EPA scale) with PM2.5, PM10, O₃ readings
+  - UV Index gauge
+  - Sunrise & sunset with arc visualisation
+  - Wind compass with live bearing
+  - Precipitation and humidity panel
+- **Right Sidebar — Locations Drawer**
+  - Pinned city cards auto-loaded on open (Bengaluru, Chennai, Delhi by default)
+  - Live city search with Enter-key or button submit
+- **Glassmorphism design** — Deep-space dark theme with ambient bloom gradients, backdrop blur, and smooth drawer transitions
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | [TanStack Start](https://tanstack.com/start) (file-based SSR routing) |
+| UI | React 18 + TypeScript |
+| Styling | Tailwind CSS v3 |
+| Icons | [Lucide React](https://lucide.dev/) |
+| HTTP | Axios |
+| Weather Data | [WeatherAPI.com](https://www.weatherapi.com/) |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── api/
+│   └── weather.ts          # WeatherAPI fetch helper (forecast + AQI)
+├── components/
+│   ├── hero.tsx             # Main WeatherDashboard component
+│   ├── LeftSidebar.tsx      # Metrics drawer (AQI, UV, wind, etc.)
+│   └── RightSidebar.tsx     # Locations drawer (search + pinned cities)
+└── routes/
+    ├── __root.tsx           # TanStack root shell with theme init script
+    ├── index.tsx            # Home route — geolocation + data fetching
+    └── about.tsx            # About page
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- A free [WeatherAPI](https://www.weatherapi.com/) key
+
+### Installation
 
 ```bash
+git clone https://github.com/your-username/atmosphere.git
+cd atmosphere
 npm install
+```
+
+### Configuration
+
+Open `src/api/weather.ts` and replace the API key, or set it via an environment variable:
+
+```ts
+// src/api/weather.ts
+const API_KEY = process.env.WEATHER_API_KEY ?? "your_api_key_here";
+```
+
+> ⚠️ **Never commit a real API key to source control.** Move the key to a `.env` file and add `.env` to `.gitignore`.
+
+```env
+# .env
+WEATHER_API_KEY=your_api_key_here
+```
+
+### Development
+
+```bash
 npm run dev
 ```
 
-# Building For Production
+Open [http://localhost:3000](http://localhost:3000). Grant location permission when prompted — the dashboard will auto-load weather for your coordinates.
 
-To build this application for production:
+### Production Build
 
 ```bash
 npm run build
+npm run start
 ```
 
-## Testing
+---
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+## 🔑 API Reference
 
-```bash
-npm run test
+All weather data is sourced from the [WeatherAPI Forecast endpoint](https://www.weatherapi.com/docs/):
+
+```
+GET https://api.weatherapi.com/v1/forecast.json
+  ?key=YOUR_KEY
+  &q={city | lat,lon}
+  &days=7
+  &aqi=yes
 ```
 
-## Styling
+Response fields used:
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+- `location` — name, country, localtime
+- `current` — temp_c, feelslike_c, humidity, wind_kph, wind_dir, wind_degree, vis_km, uv, precip_mm, condition, air_quality
+- `forecast.forecastday[].hour[]` — hourly temp and precipitation chance
+- `forecast.forecastday[].day` — daily high/low and condition
+- `forecast.forecastday[0].astro` — sunrise and sunset times
 
-### Removing Tailwind CSS
+---
 
-If you prefer not to use Tailwind CSS:
+## 🗺️ Roadmap
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
+- [ ] User-configurable pinned cities (persisted to localStorage)
+- [ ] °F / °C unit toggle
+- [ ] Light mode support
+- [ ] Weather alerts panel
+- [ ] PWA manifest for mobile install
 
+---
 
+## 📄 License
 
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+MIT — see [LICENSE](LICENSE) for details.
