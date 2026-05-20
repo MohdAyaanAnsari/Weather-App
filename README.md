@@ -137,16 +137,3 @@ Response fields used:
 
 ---
 
-## 🗺️ Roadmap
-
-- [ ] User-configurable pinned cities (persisted to localStorage)
-- [ ] °F / °C unit toggle
-- [ ] Light mode support
-- [ ] Weather alerts panel
-- [ ] PWA manifest for mobile install
-
----
-
-## 📄 License
-
-MIT — see [LICENSE](LICENSE) for details.
