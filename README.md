@@ -10,10 +10,9 @@ A cinematic, real-time weather dashboard built with **TanStack Start**, **React*
 <img width="2560" height="1600" alt="localhost_3000_(Nest Hub Max)" src="https://github.com/user-attachments/assets/dbd73a63-7489-44b1-a15e-7e5347d551aa" />
 <table>
   <tr>
-    <img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/03d2a02a-b78e-4b6c-80e0-9c249d26f8aa" />
-    <img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro)" src="https://github.com/user-attachments/assets/ffb013fa-0d9b-4183-9be9-81e88517c6b0" />
-<img width="1170" height="2532" alt="localhost_3000_(iPhone 12 Pro) (2)" src="https://github.com/user-attachments/assets/d2e9123b-1d67-4aef-bee7-d92fdf70b771" />
-
+    <td width="33%"><img width="100%" alt="Mobile View 1" src="https://github.com/user-attachments/assets/03d2a02a-b78e-4b6c-80e0-9c249d26f8aa" /></td>
+    <td width="33%"><img width="100%" alt="Mobile View 2" src="https://github.com/user-attachments/assets/ffb013fa-0d9b-4183-9be9-81e88517c6b0" /></td>
+    <td width="33%"><img width="100%" alt="Mobile View 3" src="https://github.com/user-attachments/assets/d2e9123b-1d67-4aef-bee7-d92fdf70b771" /></td>
   </tr>
 </table>
 
