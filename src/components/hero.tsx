@@ -243,25 +243,25 @@ export const WeatherDashboard: React.FC<WeatherDashboardProps> = ({
 
                 {/* BOTTOM CONTROL BAR */}
                 <div className="flex justify-between items-center bg-black/30 backdrop-blur-md px-5 rounded-xl border border-white/5 flex-initial shadow-inner">
-    {/* Left Toggle Button */}
-    <button onClick={() => setIsLeftSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-        <Blocks className="w-4 h-4" />
-    </button>
-    
-    {/* Logo Container - Increased to w-12 h-12 (48px) to fit a prominent logo */}
-    <button className="w-20 h-15 flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity">
-        <img 
-            src="/logo.png" 
-            alt="Logo" 
-            className="w-full h-full object-contain"
-        />
-    </button>
-    
-    {/* Right Toggle Button */}
-    <button onClick={() => setIsRightSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-        <List className="w-4 h-4" />
-    </button>
-</div>
+                    {/* Left Toggle Button */}
+                    <button onClick={() => setIsLeftSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
+                        <Blocks className="w-4 h-4" />
+                    </button>
+
+                    {/* Logo Container - Increased to w-12 h-12 (48px) to fit a prominent logo */}
+                    <button className="w-20 h-15 flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity">
+                        <img
+                            src="/logo.png"
+                            alt="Logo"
+                            className="w-full h-full object-contain"
+                        />
+                    </button>
+
+                    {/* Right Toggle Button */}
+                    <button onClick={() => setIsRightSidebarOpen(true)} className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">
+                        <List className="w-4 h-4" />
+                    </button>
+                </div>
             </div>
 
             {/* Sidebar Overlays */}
