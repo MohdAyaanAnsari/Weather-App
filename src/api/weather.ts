@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const WEATHER_API_BASE = 'https://api.weatherapi.com/v1';
-const API_KEY = "a55c41c630554c03a44122859261905" // Or replace safely with your string key
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 /**
  * Fetches current weather, air quality, astronomy, and 7-day forecast data
