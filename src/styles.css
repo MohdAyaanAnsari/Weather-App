@@ -16,3 +16,21 @@
     scrollbar-width: none;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0918;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #393744;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #575466;
+}
